@@ -1,0 +1,60 @@
+{
+  "name": "electron-updater-demo",
+  "version": "0.8.5",
+  "main": "main.js",
+  "description": "A complete example showing how to use `electron-updater`",
+  "author": "GuanWeihua",
+  "homepage": "https://github.com/GuanWeihua/electron-updater-demo",
+  "bugs": {
+    "url": "https://github.com/GuanWeihua/electron-updater-demo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuanWeihua/electron-updater-demo.git"
+  },
+  "scripts": {
+    "release": "electron-builder build -l -p never"
+  },
+  "devDependencies": {
+    "electron": "^7.1.9",
+    "electron-builder": "23.0.2"
+  },
+  "dependencies": {
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.0.1"
+  },
+  "build": {
+    "appId": "com.github.GuanWeihua.ElectronUpdaterDemo",
+    "productName": "ElectronUpdaterDemo",
+    "copyright": "Copyright © 2020 ${author}",
+    "directories": {
+      "output": "./app"
+    },
+    "files": [
+      "!dist/**/*",
+      "!.github/**/*",
+      "!.vscode/**/*"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "artifactName": "${productName}-x64-${version}.${ext}",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office"
+    },
+    "publish": [
+      {
+        "owner": "prakashnarkhede91",
+        "repo": "electron_update_demo",
+        "provider": "github",
+        "releaseType": "release"
+      }
+    ]
+  }
+}
